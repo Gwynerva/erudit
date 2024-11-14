@@ -1,0 +1,7 @@
+@mixin replacer
+{
+    > div > div
+    {
+        @content;
+    }
+}

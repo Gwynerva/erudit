@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "Bundler",
+        "forceConsistentCasingInFileNames": true,
+    },
+    "include": ["package/**/*", "cli/**/*"]
+}

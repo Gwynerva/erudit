@@ -1,0 +1,78 @@
+@use '$/def/size';
+
+//
+// Vars
+//
+
+:root
+{
+    --transitionSpeed: 200ms;
+}
+
+// Sizes
+
+:root
+{
+    --wAside: #{size.$wAside};
+    --wMain: #{size.$wMain};
+
+    --gap: #{size.$gap};
+    --gapSmall : #{size.$gapSmall};
+    --gapBig : #{size.$gapBig};
+}
+
+// Colors
+
+:root
+{
+    --bg: #ebebeb;
+    --bgAside: #f7f7f7;
+    --bgMain: #ffffff;
+    --bgAccent: #e6e6e6;
+
+    --border: #D7D7D7;
+
+    --text: #333333;
+    --textMuted: #696969;
+    --textDimmed: #969696;
+    --textDisabled: #b9b9b9;
+    --textBrand: #1879d9;
+
+    --scrollbar: #bfbfbf;
+
+    --invert: black;
+
+    &[data-theme='dark']
+    {
+        --bg: #141414;
+        --bgAside: #1b1b1b;
+        --bgMain: #212121;
+        --bgAccent: #262626;
+
+        --border: #373737;
+
+        --text: #C8C8C8;
+        --textMuted: #7f7f7f;
+        --textDimmed: #616161;
+        --textDisabled: #4f4f4f;
+        --textBrand: #1092e9;
+
+        --scrollbar: #494949;
+
+        --invert: white;
+    }
+}
+
+//
+// General rules
+//
+
+// Noto Sans + Noto Serif
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+body
+{
+    background: var(--bg);
+    font-family: 'Noto Sans', system-ui, sans-serif;
+    color: var(--text);
+}

@@ -1,0 +1,9 @@
+{
+    "extends": "../playground/.erudit/nuxt/.nuxt/tsconfig.json",
+    "compilerOptions": {
+        "strict": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": false,
+    }
+}

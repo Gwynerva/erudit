@@ -1,0 +1,3 @@
+{
+    "extends": "../../playground/.erudit/nuxt/.nuxt/tsconfig.server.json",
+}

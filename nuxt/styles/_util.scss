@@ -1,0 +1,55 @@
+@use 'sass:list';
+
+@mixin transition($properties...)
+{
+    @if (list.length($properties) > 0)
+    {
+        transition-property: $properties;
+    }
+
+    transition-duration: var(--transitionSpeed);
+    transition-timing-function: cubic-bezier(0, 0, .5, 1);
+}
+
+@mixin dark
+{
+    :root[data-theme='dark'] &
+    {
+        @content;
+    }
+}
+
+@mixin link
+{
+    color: inherit;
+    text-decoration-color: transparent;
+    @include transition(text-decoration-color);
+
+    &:hover
+    {
+        text-decoration: underline;
+    }
+}
+
+@mixin scroll
+{
+    -webkit-overflow-scrolling: auto;
+
+    &::-webkit-scrollbar
+    {
+        -webkit-appearance: none;
+        height: 5px;
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        background: var(--scrollbar);
+        &:hover { background: color-mix(in srgb, var(--scrollbar), var(--invert) 15%); }
+    }
+
+    &::-webkit-scrollbar-corner
+    {
+        background: var(--border);
+    }
+}
