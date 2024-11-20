@@ -23,6 +23,12 @@ const masterLanguage = defineLanguage({
     main_page: 'Main page',
     members: 'Members',
     add_translation: 'Add translation',
+    no_content: 'No content',
+    flag_dev: 'In development',
+    flag_advanced: 'Advanced',
+    flag_secondary: 'Additional',
+    to_index: 'To index',
+    about_book: 'About book',
 });
 
 export function m(number: number, one: string, few: string, includeNumber = true)

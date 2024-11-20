@@ -1,11 +1,21 @@
 <script lang="ts" setup>
 import SiteInfo from './major/SiteInfo.vue';
 import PaneSwitch from './major/PaneSwitch.vue';
-import PaneContent from './major/PaneContent.vue';
 
-const { panes } = useMajorPane();
+const { panes, activePane, getPaneOrder } = useMajorPane();
 
 const config = await useConfig();
+
+function paneStyle(paneKey: MajorPaneKey)
+{
+    const thisPaneOrder = getPaneOrder(paneKey);
+    const activePaneOrder = getPaneOrder(activePane.value);
+
+    return {
+        left: `calc(${Math.sign(thisPaneOrder - activePaneOrder)} * var(--wAside))`,
+        opacity: thisPaneOrder === activePaneOrder ? 1 : 0,
+    }
+}
 </script>
 
 <template>
@@ -13,15 +23,15 @@ const config = await useConfig();
         <SiteInfo />
         <PaneSwitch />
         <div :class="$style.paneHolder">
-            <PaneContent v-for="(pane, paneKey) of panes" :paneKey>
-                <component :is="pane.content" />
-            </PaneContent>
+            <component v-for="(pane, paneKey) of panes" :is="pane.content" :class="$style.pane" :style="paneStyle(paneKey)" />
         </div>
         <AdsLeftBanner v-if="config.ads.leftBlockId" />
     </div>
 </template>
 
 <style lang="scss" module>
+@use '$/util' as *;
+
 .asideInner
 {
     display: flex;
@@ -34,5 +44,15 @@ const config = await useConfig();
     flex: 1;
     position: relative;
     overflow-x: hidden;
+}
+
+.pane
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    @include transition(left, opacity);
 }
 </style>

@@ -43,7 +43,7 @@ function switchClick()
 
 @function maxLayoutEdge()
 {
-    @return calc(50% - var(--wMain) / 2);
+    @return calc(50% - min(var(--wMainMax), calc(100% - 2 * var(--wAside))) / 2);
 }
 
 @mixin ___asidePositionLogic

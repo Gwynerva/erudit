@@ -45,6 +45,7 @@ const nuxtLink = defineNuxtLink({});
 
     :global(.EruditIcon)
     {
+        flex-shrink: 0;
         font-size: 20px;
     }
 

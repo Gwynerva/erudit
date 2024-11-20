@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity()
-export class Contributor
+@Entity('contributor')
+export class DbContributor
 {
     @PrimaryColumn('varchar')
     contributorId: string;

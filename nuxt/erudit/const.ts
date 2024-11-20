@@ -20,6 +20,11 @@ export function buildDir(relativePath: string = '')
     return ERUDIT_BUILD_DIR + relativePath;
 }
 
+export function contentDir(relativePath: string = '')
+{
+    return ERUDIT_PROJECT_DIR + '/content' + relativePath
+}
+
 export function nuxtPath(relativePath: string = '')
 {
     return packageDir('/nuxt' + relativePath);

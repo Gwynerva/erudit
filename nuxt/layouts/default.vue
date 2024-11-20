@@ -11,7 +11,7 @@ const phrase = await usePhrases('_language_code');
 useHead({
     htmlAttrs: {
         lang: phrase._language_code,
-        style: config.value.debug ? `--transitionSpeed: .5s` : null,
+        style: config.value.debug?.slowTransition ? `--transitionSpeed: .5s` : null,
     },
     link: [
         { rel: 'icon', href: '/favicon/default.svg' }
@@ -30,6 +30,27 @@ useHead({
             innerHTML: (await import('@/styles/_immediate.css?raw')).default,
         }
     ],
+});
+
+if (!config.value.shared)
+    delete useMajorPane().panes.language;
+
+const route = useRoute();
+const { activePane } = useMajorPane();
+
+//
+// Swtiching major pane to match the new route
+//
+
+watch(route, () => {
+    if (route.path === '/')
+        return activePane.value = 'index';
+
+    const pathType = route.path.split('/')[1];
+    if (['book', 'group', 'article', 'summary', 'practice'].includes(pathType))
+        return activePane.value = 'index';
+
+    return activePane.value = 'pages';
 });
 
 if (import.meta.client)
@@ -103,7 +124,7 @@ if (import.meta.client)
     grid-template-columns: var(--w_asideMajor) var(--w_main) var(--w_asideMinor);
 
     margin: auto;
-    max-width: calc(2 * var(--wAside) + var(--wMain));
+    max-width: calc(2 * var(--wAside) + var(--wMainMax));
 
     @include transition(grid);
 

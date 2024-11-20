@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { projectDir } from '@erudit/const';
 import { debug, logger, stress } from '@erudit/logger';
 import { DB } from '@erudit/db';
-import { Contributor } from '@erudit/db/entities/Contributor';
+import { DbContributor } from '@erudit/db/entities/Contributor';
 
 export default async function buildContributors()
 {
@@ -31,7 +31,7 @@ async function addContributor(contributorId: string)
     const descriptionPath = contributorsPath(`/${contributorId}/description.bi`);
     const description = existsSync(descriptionPath) ? readFileSync(descriptionPath, 'utf-8') : undefined;
 
-    const dbContributor = new Contributor;
+    const dbContributor = new DbContributor;
     dbContributor.contributorId = contributorId;
     dbContributor.description = description;
     dbContributor.displayName = config?.displayName;

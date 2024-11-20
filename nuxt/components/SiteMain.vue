@@ -17,7 +17,7 @@ const config = await useConfig();
 {
     min-height: 100dvh;
     background: var(--bgMain);
-    padding: var(--_pMainY) 0;
+    //padding: var(--_pMainY) 0;
     //height: 10000px;
 
     --_pMainBase: var(--gapBig);

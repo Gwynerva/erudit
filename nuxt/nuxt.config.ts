@@ -1,6 +1,4 @@
-import { defineNuxtConfig } from 'nuxt/config';
-
-import { nuxtPath, packageDir, projectDir } from './erudit/const';
+import { contentDir, nuxtPath, packageDir, projectDir } from './erudit/const';
 
 export default defineNuxtConfig({
     devtools: { enabled: true },
@@ -34,6 +32,7 @@ export default defineNuxtConfig({
                 nuxtPath('/erudit'),
                 nuxtPath('/languages'),
                 projectDir('/contributors'),
+                contentDir(), // Think of some more precise update way. Rebuilding the whole project on each change sucks :'(
                 projectDir('/erudit.*'),
             ]
         },

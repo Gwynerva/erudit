@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-//import { majorPanes, getPaneOrder, activePane } from '@scripts/aside/major';
 import PaneSwitchButton from './PaneSwitchButton.vue';
-
-//const { panes, activePane, getPaneOrder } = useMajorPane();
 
 const { panes, activePane, getPaneOrder } = useMajorPane();
 

@@ -26,7 +26,10 @@ export default async function<TPhraseIds extends MasterPhraseKey[]>(...phraseIds
 
     for (const phraseId of phraseIds)
     {
-        const rawPhrase = (language.phrases[phraseId] ||= await $fetch(`/api/language/phrase/${phraseId}`));
+        const apiRoute = `/api/language/phrase/${phraseId}`;
+
+        prerenderRoutes(apiRoute);
+        const rawPhrase = (language.phrases[phraseId] ||= await $fetch(apiRoute));
         const missingText = `{{ ${phraseId} }}`;
 
         if (rawPhrase.type === PhraseType.String)

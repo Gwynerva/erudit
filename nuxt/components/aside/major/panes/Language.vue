@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import PaneContentScroll from '../PaneContentScroll.vue';
 
+const config = await useConfig();
 const phrase = await usePhrases('_language_code', '_language', 'add_translation');
 
 interface ClientLanguage
@@ -20,9 +21,22 @@ function defineLanguage(clientLanguage: ClientLanguage): ClientLanguage
 }
 
 const languages = ref<ClientLanguage[]>([
-    defineLanguage({ code: phrase._language_code, name: phrase._language, link: 'gog' }),
-    defineLanguage({ code: 'ru', name: 'Русский', link: 'https://google.com' }),
+    defineLanguage({ code: phrase._language_code, name: phrase._language }),
 ]);
+
+const { data: apiLanguages } = await useExternalApi('languages', config.value.shared);
+
+for (const [code, data] of Object.entries(apiLanguages.value) as any)
+{
+    if (code === phrase._language_code)
+        continue;
+
+    languages.value.push({
+        code,
+        name: data.name,
+        link: data.link,
+    });
+}
 
 function wip()
 {

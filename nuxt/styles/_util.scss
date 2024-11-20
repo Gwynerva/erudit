@@ -2,13 +2,8 @@
 
 @mixin transition($properties...)
 {
-    @if (list.length($properties) > 0)
-    {
-        transition-property: $properties;
-    }
-
-    transition-duration: var(--transitionSpeed);
-    transition-timing-function: cubic-bezier(0, 0, .5, 1);
+    transition: all var(--transitionSpeed) var(--transitionFunction);
+    transition-property: $properties;
 }
 
 @mixin dark

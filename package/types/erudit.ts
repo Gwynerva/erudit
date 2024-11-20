@@ -1,21 +1,41 @@
-import defu from 'defu';
-
 export interface EruditConfig
 {
-    /**
-     * Debug mode. If true, will log more build information to the console.
-     * It also makes the behavior of the site more illustrative.
-     */
-    debug: boolean;
+    /** Debug options. */
+    debug: Partial<{
+        /** Log more detailed build information to the console. */
+        deepLogs: boolean;
+
+        /** Slower CSS transition speed to make them more illustrative. */
+        slowTransition: boolean;
+
+        /** Replace actual API calls to external sites with fake ones to prevent exceeding rate limitations and make calls faster. */
+        fakeApi: Partial<{
+            content: boolean;
+            languages: boolean;
+        }>;
+    }>;
 
     /** Language of the generated site. */
     language: string;
 
-    /** GitHub Repository */
-    github: {
+    /** GitHub repository corresponding to this project. */
+    content: {
         repository: string;
         branch: string;
-    };
+    }
+
+    /** GitHub shared repository for language settings and more. */
+    shared: string;
+
+    /**
+     * List of paths relative to `books/` directory which will be scanned.
+     * Scanning will be limited to these paths and their subdirectories.
+     *
+     * If empty, all content within `books/` will be scanned.
+     *
+     * @example ['1-combinatorics', '5-geometry/3-sum-of-angles']
+     */
+    targets: string[];
 
     /** Enable ads banners. */
     ads: {
@@ -26,13 +46,15 @@ export interface EruditConfig
 
 export const defaultConfig: EruditConfig =
 {
-    debug: false,
+    debug: null,
     language: 'en',
-    github: null,
+    content: null,
+    shared: null,
+    targets: [],
     ads: {},
 }
 
 export function defineEruditConfig(eruditConfig: Partial<EruditConfig>)
 {
-    return defu(eruditConfig, defaultConfig);
+    return eruditConfig;
 }

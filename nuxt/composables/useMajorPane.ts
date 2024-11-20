@@ -1,7 +1,7 @@
 import type { Component } from 'vue';
 import type { MasterPhraseKey } from '@/languages/en';
 
-import Index from '@/components/aside/major/panes/Index.vue';
+import Index from '@/components/aside/major/panes/index/Index.vue';
 import Pages from '@/components/aside/major/panes/Pages.vue';
 import Search from '@/components/aside/major/panes/Search.vue';
 import Language from '@/components/aside/major/panes/Language.vue';

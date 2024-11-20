@@ -24,6 +24,12 @@ export default defineLanguage<MasterLanguage>({
     main_page: 'Главная страница',
     members: 'Участники',
     add_translation: 'Добавить перевод',
+    no_content: 'Содержмое отсутствует',
+    flag_dev: 'В разработке',
+    flag_advanced: 'Продвинутый уровень',
+    flag_secondary: 'Доп. материал',
+    to_index: 'К оглавлению',
+    about_book: 'Об учебнике',
 });
 
 export function m(number: number, one: string, two: string, five: string, includeNumber = true)

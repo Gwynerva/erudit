@@ -7,6 +7,8 @@
 :root
 {
     --transitionSpeed: 200ms;
+    --transitionFunction: cubic-bezier(0, 0, .5, 1);
+    interpolate-size: allow-keywords;
 }
 
 // Sizes
@@ -14,7 +16,8 @@
 :root
 {
     --wAside: #{size.$wAside};
-    --wMain: #{size.$wMain};
+    --wMainMin: #{size.$wMainMin};
+    --wMainMax: #{size.$wMainMax};
 
     --gap: #{size.$gap};
     --gapSmall : #{size.$gapSmall};
@@ -25,42 +28,22 @@
 
 :root
 {
-    --bg: #ebebeb;
-    --bgAside: #f7f7f7;
-    --bgMain: #ffffff;
-    --bgAccent: #e6e6e6;
+    --bg:           light-dark(#ebebeb, #141414);
+    --bgAside:      light-dark(#f7f7f7, #1b1b1b);
+    --bgMain:       light-dark(#ffffff, #212121);
+    --bgAccent:     light-dark(#e6e6e6, #262626);
 
-    --border: #D7D7D7;
+    --border:       light-dark(#D7D7D7, #373737);
 
-    --text: #333333;
-    --textMuted: #696969;
-    --textDimmed: #969696;
-    --textDisabled: #b9b9b9;
-    --textBrand: #1879d9;
+    --text:         light-dark(#333333, #C8C8C8);
+    --textMuted:    light-dark(#696969, #7f7f7f);
+    --textDimmed:   light-dark(#969696, #616161);
+    --textDisabled: light-dark(#b9b9b9, #4f4f4f);
+    --textBrand:    light-dark(#1879d9, #1092e9);
 
-    --scrollbar: #bfbfbf;
+    --scrollbar:    light-dark(#bfbfbf, #494949);
 
-    --invert: black;
-
-    &[data-theme='dark']
-    {
-        --bg: #141414;
-        --bgAside: #1b1b1b;
-        --bgMain: #212121;
-        --bgAccent: #262626;
-
-        --border: #373737;
-
-        --text: #C8C8C8;
-        --textMuted: #7f7f7f;
-        --textDimmed: #616161;
-        --textDisabled: #4f4f4f;
-        --textBrand: #1092e9;
-
-        --scrollbar: #494949;
-
-        --invert: white;
-    }
+    --invert:       light-dark(black, white);
 }
 
 //

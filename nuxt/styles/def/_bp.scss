@@ -4,8 +4,8 @@
 
 $bps: (
     'mobile': 500px,
-    'aside1': size.$wMain + size.$wAside,
-    'aside2': size.$wMain + size.$wAside * 2,
+    'aside1': size.$wMainMin + size.$wAside,
+    'aside2': size.$wMainMin + size.$wAside * 2,
 );
 
 @mixin above($bp)

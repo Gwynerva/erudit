@@ -11,7 +11,7 @@ function createLogger(debug: boolean = false)
     const prefix = debug ? debugPrefix : defaultPrefix;
     const _log = (...messages: any[]) => {
         if (debug)
-            if (!ERUDIT_CONFIG.debug)
+            if (!ERUDIT_CONFIG.debug?.deepLogs)
                 return;
 
         console.log(chalk.dim('[') + prefix + chalk.dim(']'), ...messages)

@@ -25,6 +25,11 @@ const config = await useConfig();
         :global(.EruditIcon) { display: none; }
     }
 
+    @media (max-height: 350px)
+    {
+        display: none;
+    }
+
     @include darkMagic.replacer
     {
         display: flex;
