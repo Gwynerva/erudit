@@ -45,7 +45,7 @@
     "perfect-debounce": "^2.1.0",
     "satori": "^0.26.0",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.4",
     "ts-xor": "catalog:",
     "tsprose": "catalog:",
     "unslash": "catalog:",
