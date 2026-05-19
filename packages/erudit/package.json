@@ -40,7 +40,7 @@
     "glob": "catalog:",
     "image-size": "catalog:",
     "jiti": "^2.6.1",
-    "nuxt": "4.4.4",
+    "nuxt": "4.4.6",
     "nuxt-my-icons": "1.2.2",
     "perfect-debounce": "^2.1.0",
     "satori": "^0.26.0",
